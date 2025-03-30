@@ -2,15 +2,16 @@ import java.util.Scanner;
 
 public class Problem8 {
     //Complexity: Linear - O(N)
-    public static void isDigits(String str){
-        
-        for (char ch : str.toCharArray()) {
-            if(!Character.isDigit(ch)){
-                System.out.println("no");
-                return;
-            }
+    public static void isDigits(String str) {
+        if (str.isEmpty()) {
+            System.out.println("yes");  // пустая строка считается "yes" (как в исходном коде)
+            return;
         }
-        System.out.println("yes");
+        if (!Character.isDigit(str.charAt(0))) {
+            System.out.println("no");
+            return;
+        }
+        isDigits(str.substring(1));  // рекурсивно проверяем оставшуюся часть строки
     }
 
 
